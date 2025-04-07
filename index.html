@@ -2,18 +2,32 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>서진에게 고백합니다</title>
+  <title>서진에게</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
     body {
-      background-color: #fff0f5;
-      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #fff0f5, #ffe4e1);
+      font-family: 'Gamja Flower', cursive;
       text-align: center;
-      padding-top: 80px;
+      color: #333;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      padding-top: 100px;
     }
 
     .heart {
-      font-size: 60px;
-      color: red;
+      font-size: 80px;
+      color: #ff4d6d;
       animation: beat 1s infinite;
     }
 
@@ -23,14 +37,9 @@
     }
 
     .message {
-      font-size: 24px;
-      margin-top: 30px;
-    }
-
-    .from {
-      margin-top: 40px;
-      font-style: italic;
-      color: #555;
+      font-size: 28px;
+      margin: 30px 20px;
+      line-height: 1.8;
     }
 
     .buttons {
@@ -38,53 +47,82 @@
     }
 
     button {
-      font-size: 20px;
-      padding: 10px 20px;
-      margin: 10px;
+      font-size: 22px;
+      padding: 12px 28px;
+      margin: 12px;
       border: none;
-      border-radius: 10px;
+      border-radius: 30px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Gamja Flower', cursive;
     }
 
     .yes {
-      background-color: #ff69b4;
+      background-color: #ff6b81;
       color: white;
     }
 
+    .yes:hover {
+      background-color: #ff4d6d;
+    }
+
     .no {
-      background-color: #ccc;
+      background-color: #d3d3d3;
       color: #333;
     }
 
+    .no:hover {
+      background-color: #aaa;
+    }
+
     .response {
-      margin-top: 40px;
-      font-size: 22px;
-      color: #d62828;
+      margin-top: 50px;
+      font-size: 26px;
+      color: #c9184a;
+    }
+
+    .from {
+      margin-top: 60px;
+      font-size: 20px;
+      color: #666;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="heart">❤️</div>
-  <div class="message">
-    서진아,<br><br>
-    사실 나 너 좋아해...<br>
-    같이 시간 보내고 싶고, 많이 생각나.<br><br>
-    나랑... 사귈래? 😊
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_509b24c9f9.mp3?filename=romantic-piano-loop-122841.mp3" type="audio/mpeg">
+    브라우저가 오디오를 지원하지 않아요 😢
+  </audio>
+
+  <div class="container">
+    <div class="heart">💗</div>
+    <div class="message">
+      서진아,<br><br>
+      너를 처음 봤을 때부터<br>
+      자꾸만 생각나고, 보고 싶었어.<br><br>
+      나랑… 사귀어줄래? 🌸
+    </div>
+
+    <div class="buttons">
+      <button class="yes" onclick="showResponse(true)">응 ❤️</button>
+      <button class="no" onclick="showResponse(false)">거절 😢</button>
+    </div>
+
+    <div class="response" id="response"></div>
+    <div class="from">– 진심을 담은, 재하가 –</div>
   </div>
-  <div class="buttons">
-    <button class="yes" onclick="showResponse(true)">응 ❤️</button>
-    <button class="no" onclick="showResponse(false)">거절 😢</button>
-  </div>
-  <div class="response" id="response"></div>
-  <div class="from">– 재하가 –</div>
 
   <script>
     function showResponse(isYes) {
       const responseDiv = document.getElementById("response");
       if (isYes) {
-        responseDiv.innerHTML = "🎉 예스!!! 너무 좋아!! 우리 이제 1일이야!! 💖";
+        responseDiv.innerHTML = "💖 예스!!! 우리 이제 1일이야... 너무 행복해!! 🎉";
       } else {
-        responseDiv.innerHTML = "😭 아쉽지만… 고마워. 그래도 너 좋아했던 마음은 진심이야.";
+        responseDiv.innerHTML = "😢 아쉽지만 고마워... 네가 웃을 수 있길 바랄게.";
       }
     }
   </script>
