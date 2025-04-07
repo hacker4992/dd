@@ -8,7 +8,7 @@
       background-color: #fff0f5;
       font-family: 'Arial', sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 80px;
     }
 
     .heart {
@@ -28,9 +28,38 @@
     }
 
     .from {
-      margin-top: 50px;
+      margin-top: 40px;
       font-style: italic;
       color: #555;
+    }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    .response {
+      margin-top: 40px;
+      font-size: 22px;
+      color: #d62828;
     }
   </style>
 </head>
@@ -42,6 +71,22 @@
     같이 시간 보내고 싶고, 많이 생각나.<br><br>
     나랑... 사귈래? 😊
   </div>
+  <div class="buttons">
+    <button class="yes" onclick="showResponse(true)">응 ❤️</button>
+    <button class="no" onclick="showResponse(false)">거절 😢</button>
+  </div>
+  <div class="response" id="response"></div>
   <div class="from">– 재하가 –</div>
+
+  <script>
+    function showResponse(isYes) {
+      const responseDiv = document.getElementById("response");
+      if (isYes) {
+        responseDiv.innerHTML = "🎉 예스!!! 너무 좋아!! 우리 이제 1일이야!! 💖";
+      } else {
+        responseDiv.innerHTML = "😭 아쉽지만… 고마워. 그래도 너 좋아했던 마음은 진심이야.";
+      }
+    }
+  </script>
 </body>
 </html>
